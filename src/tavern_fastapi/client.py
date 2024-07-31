@@ -67,4 +67,4 @@ class FastAPITestSession:
             body = jsonlib.dumps(json)
 
         meth = getattr(self._test_client, method.lower())
-        return meth(route, headers=headers, data=body, query_string=params)
+        return meth(route, headers=headers, data=body, params=params)
