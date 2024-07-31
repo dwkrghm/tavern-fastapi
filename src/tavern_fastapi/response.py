@@ -16,6 +16,8 @@ class FastAPIResponse(RestResponse):
 
         from requests import Response
 
+        logger.debug("The response", response)
+
         wrapped_response = Response()
         wrapped_response.headers = response.headers
         wrapped_response.status_code = response._status_code
