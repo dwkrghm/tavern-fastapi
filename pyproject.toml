@@ -43,7 +43,7 @@ Source = "https://github.com/dwkrghm/tavern-fastapi"
 dev = ["flit >=3.2,<4", "wheel", "pre-commit", "tox>=4,<5", "ruff>=0.3.4", "uv"]
 
 [project.entry-points.tavern_http]
-flask = "tavern_fastapi.tavernhook"
+fastapi = "tavern_fastapi.tavernhook"
 
 [tool.ruff]
 target-version = "py38"
