@@ -58,14 +58,19 @@ class FastAPITestSession:
         parsed = urlparse(url)
         route = parsed.path
 
-        body = None
+        args = {}
+
+        if headers:
+            args["headers"] = headers
+
+        if params:
+            args["params"] = params
 
         if data:
-            body = urlencode(data)
+            args["body"] = urlencode(data)
 
         if json:
-            body = jsonlib.dumps(json)
+            args["json"] = json
 
         with TestClient(app=self._fastapi_app) as _test_client:
-            meth = getattr(_test_client, method.lower())
-            return meth(route, headers=headers, data=body, params=params)
+            return _test_client.request(method=method, url=route, **args)
