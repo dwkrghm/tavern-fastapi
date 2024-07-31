@@ -6,7 +6,7 @@ logger = logging.getLogger(__name__)
 
 
 class FastAPIResponse(RestResponse):
-    """Flask response verifier"""
+    """FastAPI response verifier"""
 
     def verify(self, response):
         """Wrap the FastAPI response into a Requests response and call the

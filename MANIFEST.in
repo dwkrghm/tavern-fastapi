@@ -1,2 +1,2 @@
-include tavern_<plugin>/tests.schema.yaml
+include tavern_fastapi/tests.schema.yaml
 include LICENSE
