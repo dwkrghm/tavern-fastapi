@@ -1,0 +1,51 @@
+[build-system]
+requires = ["flit-core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Framework :: Pytest",
+    "Programming Language :: Python :: 3",
+    "Topic :: Utilities",
+    "Topic :: Software Development :: Testing",
+    "License :: OSI Approved :: MIT License",
+]
+
+keywords = ["testing", "pytest"]
+
+name = "tavern-my-plugin-name"
+description = "A plugin for Tavern"
+version = "0.0.1"
+
+dependencies = [
+    "tavern>=2.10.1,<3",
+]
+
+requires-python = ">=3.8"
+
+[project.license]
+file = "LICENSE"
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+[project.optional-dependencies]
+dev = [
+    "flit >=3.2,<4",
+    "wheel",
+    "pre-commit",
+    "tox>=4,<5",
+    "ruff>=0.3.4",
+    "uv",
+]
+
+
+[tool.ruff]
+target-version = "py38"
+
+[tool.ruff.format]
+docstring-code-format = true
