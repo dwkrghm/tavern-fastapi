@@ -30,7 +30,7 @@ class FastAPITestSession:
             raise exceptions.MissingKeysError(msg) from e
 
         self._fastapi_app = import_ext_function(app_location)
-        self._test_client = TestClient(self._fastapi_app)
+        # self._test_client = TestClient(app=self._fastapi_app)
 
     def __enter__(self):
         pass
@@ -66,5 +66,6 @@ class FastAPITestSession:
         if json:
             body = jsonlib.dumps(json)
 
-        meth = getattr(self._test_client, method.lower())
-        return meth(route, headers=headers, data=body, params=params)
+        with TestClient(app=self._fastapi_app) as _test_client:
+            meth = getattr(_test_client, method.lower())
+            return meth(route, headers=headers, data=body, params=params)
