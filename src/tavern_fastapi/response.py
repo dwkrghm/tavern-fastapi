@@ -19,6 +19,6 @@ class FastAPIResponse(RestResponse):
         wrapped_response = Response()
         wrapped_response.headers = response.headers
         wrapped_response.status_code = response.status_code
-        wrapped_response._content = response.text
+        wrapped_response._content = response.content
 
         return super(FastAPIResponse, self).verify(wrapped_response)
