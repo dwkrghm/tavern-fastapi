@@ -6,18 +6,18 @@ from typing import Dict
 import yaml
 from tavern._core.dict_util import format_keys
 
-from .client import PluginTestSession
-from .request import PluginRequest
-from .response import PluginResponse
+from .client import FastAPITestSession
+from .request import FastAPIRequest
+from .response import FastAPIResponse
 
 if typing.TYPE_CHECKING:
     from tavern._core.pytest.config import TestConfig
 
 logger = logging.getLogger(__name__)
 
-session_type = PluginTestSession
+session_type = FastAPITestSession
 
-request_type = PluginRequest
+request_type = FastAPIRequest
 request_block_name = "request"
 
 
@@ -28,7 +28,7 @@ def get_expected_from_request(
     return f_expected
 
 
-verifier_type = PluginResponse
+verifier_type = FastAPIResponse
 response_block_name = "response"
 
 schema_path = join(abspath(dirname(__file__)), "schema.yaml")
